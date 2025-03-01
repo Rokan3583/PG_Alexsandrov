@@ -13,10 +13,11 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
         if event.type == pygame.KEYDOWN:
-            print(f"Press {event.key}")
+            print(f'Press{event.key}')
         if event.type == pygame.KEYUP:
-            print(f"Release {event.key}")
+            print(f'Release{event.key}')
 
 
     screen.fill(BACKGROUND)

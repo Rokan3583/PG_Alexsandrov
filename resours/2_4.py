@@ -1,74 +1,41 @@
-from pygame import *
-from pygame.constants import *
-from random import *
-
+import pygame
+from random import choice
 from all_colors import *
+
 pygame.init()
 
-size = (1200, 720)
-screen = pygame.display.set_mode(size)
+
+screen_width = 800
+screen_height = 600
+screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("новая игра")
-BACKGROUND = (255,255,255)
+BACKGROUND = (255, 255, 255)
 screen.fill(BACKGROUND)
-FPS = 60
-
-speed = 5
-color = RED
-rect = pygame.Rect(0,100,200,150)
 
 
-clock = pygame.time.Clock()
+COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
+          ORANGE, PINK, BROWN, PURPLE, LIME, NAVY, OLIVE, MAROON, TEAL, COLD]
+
+
+initial_size = 200
+
 running = True
+clock = pygame.time.Clock()
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    rect.x += speed
-    if rect.x > screen.get_width():
-        rect.x = -rect.width
+    size = initial_size
+    for i in range(18):
+        rect = pygame.Rect(0, 0, size, size)
+        rect.center = (screen_width // 2, screen_height // 2)
+        pygame.draw.rect(screen, choice(COLORS), rect)
+        size -= 15
 
-
-
-    #
-    # keys = pygame.key.get_pressed()
-    #
-    #
-    #
-    #
-    # if keys[K_LEFT]:
-    #     x -= speed
-    # if keys[K_RIGHT]:
-    #     x += speed
-    # if keys[K_UP]:
-    #     y -= speed
-    # if keys[K_DOWN]:
-    #     y += speed
-    #
-    # if x < 0:
-    #     x = 0
-    #     color = choice(COLORS)
-    #     continue
-    # if x > size[0] - width:
-    #     x = size[0] - width
-    #     color = choice(COLORS)
-    #     continue
-    #
-    # if y < 0:
-    #     y = 0
-    #     color = choice(COLORS)
-    #     continue
-    # if y > size[1] - height:
-    #     y = size[1] - height
-    #     color = choice(COLORS)
-    #     continue
-    #
-
-
-
-    screen.fill(BACKGROUND)
-    pygame.draw.rect(screen, BLUE, rect)
     pygame.display.flip()
-    clock.tick(FPS)
+
+    clock.tick(5)
 
 pygame.quit()

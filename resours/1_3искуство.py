@@ -4,7 +4,7 @@ import random
 pygame.init()
 
 pygame.mixer.init()
-pygame.mixer.music.load('Hydrogen.mp3')
+pygame.mixer.music.load('resources/Hydrogen.mp3')
 pygame.mixer.music.play(-1)
 
 size = (0, 0)

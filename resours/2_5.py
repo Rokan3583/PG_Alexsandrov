@@ -1,32 +1,36 @@
-from pygame import *
-from pygame.constants import *
-from random import *
-
+import pygame
 from all_colors import *
+from random import *
 pygame.init()
 
-size = (1200, 720)
-screen = pygame.display.set_mode(size)
+width_screen = 640
+height_screen = 480
+screen = pygame.display.set_mode((width_screen, height_screen))
 pygame.display.set_caption("новая игра")
-BACKGROUND = (255,255,255)
+BACKGROUND = (255, 255, 255)
 screen.fill(BACKGROUND)
-FPS = 60
-rect_size = 200
-speed = 5
-x = 0
-y = 0
-color = [RED, BLACK]
-# rect1 = pygame.Rect(x, y, rect_size, rect_size)
-# rect1.center = (screen.get_width()//2, screen.get_height()//2)
-# pygame.draw.rect(screen,BLACK,rect1)
-#
-# rect2 = pygame.Rect(x, y, rect_size//2, rect_size//2)
-# rect2.center = (screen.get_width()//2, screen.get_height()//2)
-# pygame.draw.rect(screen,RED,rect2)
-for i in range(2):
-    rect1 = pygame.Rect(x, y, rect_size//i, rect_size//i)
-    rect1.center = (screen.get_width() // 2, screen.get_height() // 2)
-    pygame.draw.rect(screen, color(i), rect1)
+
+width = 100
+height = 75
+
+COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
+          ORANGE, PINK, BROWN, PURPLE, LIME, NAVY, OLIVE, MAROON, TEAL, COLD]
+
+rects = []
+
+rects.append(pygame.Rect(0, 0, width, height))
+
+rects.append(pygame.Rect(0, 0, width, height))
+rects[-1].topright = (width_screen, 0)
+
+rects.append(pygame.Rect(0, 0, width, height))
+rects[-1].bottomleft = (0, height_screen)
+
+rects.append(pygame.Rect(0, 0, width, height))
+rects[-1].bottomright = (width_screen, height_screen)
+
+rects.append(pygame.Rect(0, 0, width, height))
+rects[-1].center = (width_screen//2, height_screen//2)
 
 
 clock = pygame.time.Clock()
@@ -36,46 +40,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-
-    #
-    # keys = pygame.key.get_pressed()
-    #
-    #
-    #
-    #
-    # if keys[K_LEFT]:
-    #     x -= speed
-    # if keys[K_RIGHT]:
-    #     x += speed
-    # if keys[K_UP]:
-    #     y -= speed
-    # if keys[K_DOWN]:
-    #     y += speed
-    #
-    # if x < 0:
-    #     x = 0
-    #     color = choice(COLORS)
-    #     continue
-    # if x > size[0] - width:
-    #     x = size[0] - width
-    #     color = choice(COLORS)
-    #     continue
-    #
-    # if y < 0:
-    #     y = 0
-    #     color = choice(COLORS)
-    #     continue
-    # if y > size[1] - height:
-    #     y = size[1] - height
-    #     color = choice(COLORS)
-    #     continue
-    #
-
-
-
-
+    for rect in rects:
+        pygame.draw.rect(screen, choice(COLORS), rect)
 
     pygame.display.flip()
-    clock.tick(FPS)
+    clock.tick(5)
 
 pygame.quit()
