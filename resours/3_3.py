@@ -1,5 +1,6 @@
 import pygame
 pygame.init()
+<<<<<<< HEAD
 from all_colors import *
 import pygame.mixer
 pygame.mixer.init()
@@ -16,10 +17,18 @@ win_sound = pygame.mixer.Sound('resources/win.mp3')
 
 shot_sound.set_volume(0.6)
 win_sound.set_volume(0.2)
+=======
+
+import pygame.mixer
+pygame.mixer.init()
+from all_colors import *
+
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
 
 size = (1200, 720)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
+<<<<<<< HEAD
 BACKGROUND = (255, 255, 255)
 screen.fill(BACKGROUND)
 COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
@@ -40,10 +49,35 @@ hp_ship = 10  # Начальное количество жизней кораб�
 ammo = 10  # Начальное количество снарядов
 
 ship_alive = True
+=======
+BACKGROUND = (255,255,255)
+screen.fill(BACKGROUND)
+
+screen_rect = screen.get_rect()
+ship = pygame.Rect(300,200,50,100)
+ship.right = screen_rect.right
+ship.centery = screen_rect.centery
+
+missile = pygame.Rect(50,50,10,10)
+missile.left = screen_rect.left
+missile.centery = screen_rect.centery
+
+missile_speed_x = 0
+missile_speed_y = 0
+
+ship_speed_y = 1
+hp_ship = 1
+
+ship_alive = True
+missile_alive = True
+
+missile_launched = False
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
 
 FPS = 60
 clock = pygame.time.Clock()
 running = True
+<<<<<<< HEAD
 
 # Шрифт для отображения текста
 font = pygame.font.Font(None, 36)
@@ -52,12 +86,15 @@ def draw_text(text, x, y, color):
     text_surface = font.render(text, True, color)
     screen.blit(text_surface, (x, y))
 
+=======
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
         elif event.type == pygame.KEYDOWN:
+<<<<<<< HEAD
             if event.key == pygame.K_SPACE and ammo > 0:
                 # Проверяем, нет ли уже активных снарядов
                 if not missiles:  # Если список снарядов пуст
@@ -111,6 +148,22 @@ while running:
     draw_text(f"Жизни: {hp_ship}", 10, 10, BLACK)
     draw_text(f"Снаряды: {ammo}", screen_rect.width - 150, 10, BLACK)
 
+=======
+            if event.key == pygame.K_SPACE and not missile_launched:
+                missile_launched = True
+                missile_speed_x = 3
+                missile_speed_y = 0
+
+    if missile_alive:
+        missile.move_ip(missile_speed_x,missile_speed_y)
+
+
+    screen.fill(BACKGROUND)
+    if ship_alive:
+        pygame.draw.rect(screen,BLUE,ship)
+    if missile_alive:
+        pygame.draw.rect(screen, RED, missile)
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
     pygame.display.flip()
     clock.tick(FPS)
 

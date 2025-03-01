@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 from pygame.constants import *
 import pygame
+=======
+import pygame
+from pygame.constants import *
+
+from all_colors import *
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
 pygame.init()
 
 size = (1280, 720)
@@ -7,6 +14,7 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
 BACKGROUND = (255,255,255)
 screen.fill(BACKGROUND)
+<<<<<<< HEAD
 RED = (255,0,0)
 
 
@@ -21,6 +29,15 @@ player.midleft = (0,size[1]//2)
 
 enemy = pygame.Rect(0,0,100,40)
 enemy.midleft = (size[0]-100,size[1]//2)
+=======
+speed = 5
+move = {K_LEFT:(-speed,0), K_RIGHT:(speed,0), K_UP:(0,-speed), K_DOWN:(0,speed)}
+player = pygame.Rect(0,0,100,40)
+player.midleft = (0, size[1]//2)
+enemy = pygame.Rect(0,0,100,40)
+enemy.midleft = (size[0]-100, size[1]//2)
+
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -30,8 +47,11 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
     keys = pygame.key.get_pressed()
     for key in move:
         if keys[key]:
@@ -42,9 +62,18 @@ while running:
         player.topleft = old_pos
 
     screen.fill(BACKGROUND)
+<<<<<<< HEAD
     pygame.draw.rect(screen,RED,player)
     pygame.draw.rect(screen,RED,enemy)
     pygame.display.flip()
     clock.tick(FPS)
 
 pygame.quit()
+=======
+    pygame.draw.rect(screen,RED, player)
+    pygame.draw.rect(screen, RED, enemy)
+    pygame.display.flip()
+    clock.tick(FPS)
+
+pygame.quit()
+>>>>>>> 19b00346b9c0cf976fcd3fb27728f657b1eb4c33
