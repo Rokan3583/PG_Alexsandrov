@@ -17,6 +17,9 @@ CLICK_COLOR = (0,50,255)
 
 BUTTON_RADIUS = 50
 BUTTON_CENTER = [size[0]//2, size[1]/2]
+button_rect = pygame.Rect(BUTTON_CENTER[0]-BUTTON_RADIUS,BUTTON_CENTER[1]-BUTTON_RADIUS,
+                          BUTTON_RADIUS*2,
+                          BUTTON_RADIUS*2)
 
 hovering = False
 clicking = False
@@ -30,7 +33,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEMOTION:
-            if (distance(event.pos,BUTTON_CENTER)< BUTTON_RADIUS):
+            if button_rect.collidepoint(event.pos):
                 hovering = True
             else:
                 hovering = True
@@ -39,7 +42,7 @@ while running:
                 BUTTON_CENTER[0] = event.pos[0]
                 BUTTON_CENTER[1] = event.pos[1]
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if (event.button ==3 and distance(event.pos,BUTTON_CENTER)< BUTTON_RADIUS):
+            if event.button ==3 and button_rect.collidepoint(event.pos):
                 clicking = True
         elif event.type == pygame.MOUSEBUTTONUP:
             clicking = False
@@ -50,7 +53,7 @@ while running:
         button_color = HOVER_COLOR
     else:
         button_color = BUTTON_COLOR
-    pygame.draw.circle(screen, button_color,BUTTON_CENTER,BUTTON_RADIUS)
+    pygame.draw.rect(screen, button_color,BUTTON_CENTER,BUTTON_RADIUS)
     pygame.display.flip()
     clock.tick(FPS)
 
