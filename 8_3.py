@@ -1,6 +1,7 @@
 def remove_point(mouse_pos):
     for point in points:
 
+
         if ((point[0] - mouse_pos[0])**2 + (point[1] - mouse_pos[1])**2
         <= RADIUS**2):
 
@@ -11,6 +12,7 @@ def remove_point(mouse_pos):
 
 import pygame
 
+
 pygame.init()
 
 
@@ -18,12 +20,12 @@ pygame.init()
 
 size = (1280, 720)
 
-
 from all_colors import WHITE
 
-pygame.init()
 
-size = (1200, 720)
+
+
+
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
@@ -38,10 +40,7 @@ RADIUS = 5
 
 
 
-points = []
-LINE_COLOR = (255,255,255)
-PREVUEW_COLOR =(192,192,192)
-RADIUS = 5
+
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -50,6 +49,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
 
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -78,6 +78,4 @@ while running:
 
 
 pygame.quit()
-
-
 

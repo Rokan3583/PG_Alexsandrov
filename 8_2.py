@@ -5,7 +5,9 @@ from all_colors import WHITE
 pygame.init()
 
 
+
 size = (1280, 720)
+
 
 
 screen = pygame.display.set_mode(size)
@@ -15,9 +17,11 @@ screen.fill(BACKGROUND)
 
 
 
+
 points = []
 LINE_COLOR = (255,255,255)
 PREVUEW_COLOR =(192,192,192)
+
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -26,6 +30,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
 
 
 
@@ -45,8 +50,10 @@ while running:
         pygame.draw.aaline(screen, COLORS,last_points,mouse_pos, 3)
 
 
+
     pygame.display.flip()
     clock.tick(FPS)
+
 
 
 pygame.quit()

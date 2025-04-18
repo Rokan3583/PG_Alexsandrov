@@ -1,4 +1,5 @@
 
+
 def hightlight_closest_point(mouse_pos):
     closest_point = None
     closest_distance = float('inf')
@@ -33,31 +34,7 @@ pygame.init()
 
 size = (1280, 720)
 
-def remove_point(mouse_pos):
-    for point in points:
-        if ((point[0] - mouse_pos[0]) ** 2 + (point[1] - mouse_pos[1]) ** 2 <= RADIUS**2):
-            points.remove(point)
-            break
 
-def hightlight_closent_point(mouse_pos):
-    closent_point = None
-    closent_distanse = float('inf')
-    for point in points:
-        distanse = ((point[0] - mouse_pos[0]) ** 2 +
-                    (point[1] - mouse_pos[1]) ** 2)**0.5
-        if distanse <= RADIUS**2 and distanse < closent_distanse:
-            closent_point = point
-            closent_distanse = distanse
-    if closent_point is not None:
-        pygame.draw.circle(screen,HIGHTLIGHT_COLOR,closent_point, RADIUS)
-
-import pygame
-
-from all_colors import *
-
-pygame.init()
-
-size = (1200, 720)
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
@@ -71,14 +48,6 @@ points = []
 RADIUS = 5
 RED = (255,0,0)
 
-
-
-points = []
-LINE_COLOR = (255,255,255)
-PREVUEW_COLOR =(192,192,192)
-HIGHTLIGHT_COLOR = (255,0,0)
-RADIUS = 5
-
 FPS = 60
 clock = pygame.time.Clock()
 running = True
@@ -86,6 +55,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
 
 
 
@@ -113,6 +83,4 @@ while running:
 
     pygame.display.flip()
     clock.tick(FPS)
-
-pygame.quit()
 

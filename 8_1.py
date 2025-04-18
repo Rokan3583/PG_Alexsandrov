@@ -5,14 +5,18 @@ from all_colors import WHITE
 pygame.init()
 
 
+
 size = (1280, 720)
+
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
 BACKGROUND = (0,0,0)
 screen.fill(BACKGROUND)
 
+
 WHITE = (255,255,255)
+
 
 
 points = []
@@ -27,6 +31,7 @@ while running:
 
 
 
+
         elif event.type == pygame.MOUSEBUTTONDOWN:
             points.append(event.pos)
 
@@ -38,8 +43,10 @@ while running:
         pygame.draw.line(screen,WHITE,start_points,end_points,1)
 
 
+
     pygame.display.flip()
     clock.tick(FPS)
+
 
 pygame.quit()
 
