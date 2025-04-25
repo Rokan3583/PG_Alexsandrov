@@ -47,7 +47,7 @@ def draw_palette():
 FPS = 60
 clock = pygame.time.Clock()
 running = True
-
+dragging_palette = False
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
