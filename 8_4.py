@@ -1,5 +1,3 @@
-
-
 def hightlight_closest_point(mouse_pos):
     closest_point = None
     closest_distance = float('inf')
@@ -33,20 +31,17 @@ pygame.init()
 
 
 size = (1280, 720)
-
-
-
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
 BACKGROUND = (0,0,0)
 screen.fill(BACKGROUND)
-
 COLORS = (192,192,192)
 LINE_COLOR = (255,255,255)
 
 points = []
 RADIUS = 5
 RED = (255,0,0)
+
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -55,8 +50,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
-
 
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -84,3 +77,4 @@ while running:
     pygame.display.flip()
     clock.tick(FPS)
 
+pygame.quit()

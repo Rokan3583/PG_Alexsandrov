@@ -4,24 +4,15 @@ from all_colors import WHITE
 
 pygame.init()
 
-
-
 size = (1280, 720)
-
-
-
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
 BACKGROUND = (0,0,0)
 screen.fill(BACKGROUND)
-
-
-
+COLORS = (192,192,192)
+LINE_COLOR = (255,255,255)
 
 points = []
-LINE_COLOR = (255,255,255)
-PREVUEW_COLOR =(192,192,192)
-
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -30,8 +21,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
-
 
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -49,12 +38,7 @@ while running:
         mouse_pos = pygame.mouse.get_pos()
         pygame.draw.aaline(screen, COLORS,last_points,mouse_pos, 3)
 
-
-
     pygame.display.flip()
     clock.tick(FPS)
 
-
-
 pygame.quit()
-

@@ -1,5 +1,3 @@
-
-
 import pygame
 
 pygame.init()
@@ -87,7 +85,6 @@ while running:
         pygame.draw.aaline(screen, COLORS, last_point, mouse_pos, 3)
     if closest_point:
         pygame.draw.circle(screen, RED, closest_point, RADIUS, 1)
-
 
     pygame.display.flip()
     clock.tick(FPS)
