@@ -1,5 +1,4 @@
 import pygame
-
 from all_colors import *
 
 pygame.init()
@@ -14,10 +13,8 @@ brush_width = 5
 BORDER_COLOR = (0, 0, 0)
 CUR_INDEX = 0
 
-
 canvas = pygame.Surface(screen.get_size())
 canvas.fill(BACKGROUND)
-
 
 COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
           ORANGE, PINK, BROWN, PURPLE, LIME, NAVY, OLIVE, MAROON, TEAL, COLD]
@@ -43,16 +40,16 @@ def draw_palette():
     screen.blit(palette, palette_rect.topleft)
 
 
+dragging_palette = False
 
 FPS = 60
 clock = pygame.time.Clock()
 running = True
-dragging_palette = False
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 3:
@@ -131,11 +128,8 @@ while running:
         pygame.draw.rect(screen, BORDER_COLOR,
                          (x, y, width, height), 1)
 
-
     draw_palette()
     pygame.display.flip()
     clock.tick(FPS)
 
-
 pygame.quit()
-
