@@ -6,10 +6,10 @@ import os
 pygame.init()
 
 
-SCREEN_WIDTH = 1000
+SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
-ROWS = 3
-COLS = 3
+ROWS = 5
+COLS = 5
 MARGIN = 2
 BACKGROUND = (0, 0, 0)
 SELECT_COLOR = (0, 255, 0)
